@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
     position: 'relative',
     width: '100%',
     height: '100%',
-    backgroundColor: 'linear-gradient(191.65deg, rgba(15, 86, 224, 0.56) 8.54%, #A0BCF3 99.15%)'
+    backgroundColor: 'linear-gradient(191.65deg, rgba(15, 86, 224, 0.46) 4.54%, #A0BCF3 99.15%)'
   },
 // image welcome
   containerimageWelcome: {
