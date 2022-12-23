@@ -1,22 +1,33 @@
-import { StyleSheet, Text, View, Pressable } from 'react-native';
+import { StyleSheet, Text, View, Pressable, Modal } from 'react-native';
 import { MaterialCommunityIcons, Ionicons } from '@expo/vector-icons';
-import { useLayoutEffect } from 'react';
+import { useLayoutEffect, useState } from 'react';
 
-export default function Home({navigation}) {
+const Home = ({navigation}) =>{
+
+  // function to show dropMenu
+  const [showModal, setShowModal] = useState(false)
+
+  const iconMenuPress = () =>{
+    setShowModal(true)
+    
+  }
 
   // customize header in home screen
   useLayoutEffect(() =>{
     navigation.setOptions({
-      headerTitle: 'Accueil',
+      headerTitle: 'Home',
+      headerLeft:() =>{
+        
+      },
       headerRight: () =>(
-        <Pressable>
+        <Pressable onPress={iconMenuPress}>
           <Ionicons name='ios-ellipsis-vertical' color='#212021' size='1.5rem'></Ionicons>
         </Pressable>
-      )
-
-      
+      ) 
     })
   })
+
+  const [color, setColor] = useState()
 
   // function that allow to navigate on Annotation Screen
   const handlePressEdit = () => {
@@ -37,20 +48,30 @@ export default function Home({navigation}) {
 
   return (
     <View style={styles.container}>
-    {/* footer navbar */}
+    {/* modal */}
+      <Modal
+        visible={showModal}
+        onRequestClose={() => setShowModal(false)}
+      >
+      <Text> i am the</Text>
+    </Modal>
+    {/* endmodal */}
+    {/* bottom tab navbar */}
       <View style={styles.navBarBottom}>
       {/* pressable icon */}
-        <Pressable onPress={handlePressHome}>
+        <Pressable onPress={handlePressHome} >
           <MaterialCommunityIcons  name='home-outline' style={styles.navIcon} color="blue"/>
           <Text style={{fontSize: '0.5rem', position: 'relative', color: '#6B6B6B'}}>Home</Text>
         </Pressable>
 
-        <Pressable onPress={handlePressEdit}>
+        <Pressable 
+          onPress={handlePressEdit} 
+        >
           <MaterialCommunityIcons name='image-edit-outline' style={styles.navIcon}/>
           <Text style={{fontSize: '0.5rem', position: 'relative', color: '#6B6B6B'}}>Annotation</Text>
         </Pressable>
 
-        <Pressable onPress={handlePressRecognition}>
+        <Pressable onPress={handlePressRecognition} >
           <MaterialCommunityIcons name='line-scan' style={styles.navIcon}/>
           <Text style={{fontSize: '0.5rem', position: 'relative', color: '#6B6B6B'}}>Recognition</Text>
         </Pressable>
@@ -92,3 +113,4 @@ const styles = StyleSheet.create({
     marginTop: 8,
   }
 });
+export default Home;

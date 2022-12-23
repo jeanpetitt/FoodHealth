@@ -54,7 +54,8 @@ const styles = StyleSheet.create({
     // left: '11%',
     top: '8%',
     // backgroundColor: 'orange',
-    marginHorizontal: '10%'
+    marginHorizontal: '10%',
+    alignItems: 'center'
 
   },
   imageWelcome: {
@@ -83,11 +84,11 @@ const styles = StyleSheet.create({
 // button go to home page
   btn: {
     position: 'absolute',
-    justifyContent: 'center',
     top: '70%',
     height: 50,
     width: '35%',
     left: '30%',
+    alignItems: 'center'
   },
   textStart: {
     fontFamily: 'poppins',

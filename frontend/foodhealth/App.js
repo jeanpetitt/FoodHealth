@@ -11,6 +11,7 @@ import Search from './screens/Search';
 import { Easing } from 'react-native';
 
 
+
 const stack = createStackNavigator();
 
 const openConfig = {
@@ -47,7 +48,7 @@ export default function App(){
           open: openConfig,
           close: closeConfig
         },
-        cardStyleInterpolator: CardStyleInterpolators.forVerticalIOS
+        cardStyleInterpolator: CardStyleInterpolators.forHorizontalIos
       }}>
         <stack.Screen name='Start' options={{header: () => null}} component={Start}></stack.Screen>
         <stack.Screen name='Home' component={Home}></stack.Screen>
@@ -57,5 +58,6 @@ export default function App(){
         <stack.Screen name='Search' component={Search}></stack.Screen>
       </stack.Navigator>
     </NavigationContainer>
+ 
   )
 }
