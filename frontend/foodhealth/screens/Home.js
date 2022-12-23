@@ -1,9 +1,22 @@
 import { StyleSheet, Text, View, Pressable } from 'react-native';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
-
-
+import { MaterialCommunityIcons, Ionicons } from '@expo/vector-icons';
+import { useLayoutEffect } from 'react';
 
 export default function Home({navigation}) {
+
+  // customize header in home screen
+  useLayoutEffect(() =>{
+    navigation.setOptions({
+      headerTitle: 'Accueil',
+      headerRight: () =>(
+        <Pressable>
+          <Ionicons name='ios-ellipsis-vertical' color='#212021' size='1.5rem'></Ionicons>
+        </Pressable>
+      )
+
+      
+    })
+  })
 
   // function that allow to navigate on Annotation Screen
   const handlePressEdit = () => {
@@ -28,19 +41,23 @@ export default function Home({navigation}) {
       <View style={styles.navBarBottom}>
       {/* pressable icon */}
         <Pressable onPress={handlePressHome}>
-          <MaterialCommunityIcons name='home-outline' color="blue" style={styles.navIcon}/>
+          <MaterialCommunityIcons  name='home-outline' style={styles.navIcon} color="blue"/>
+          <Text style={{fontSize: '0.5rem', position: 'relative', color: '#6B6B6B'}}>Home</Text>
         </Pressable>
 
         <Pressable onPress={handlePressEdit}>
           <MaterialCommunityIcons name='image-edit-outline' style={styles.navIcon}/>
+          <Text style={{fontSize: '0.5rem', position: 'relative', color: '#6B6B6B'}}>Annotation</Text>
         </Pressable>
 
         <Pressable onPress={handlePressRecognition}>
           <MaterialCommunityIcons name='line-scan' style={styles.navIcon}/>
+          <Text style={{fontSize: '0.5rem', position: 'relative', color: '#6B6B6B'}}>Recognition</Text>
         </Pressable>
 
         <Pressable  onPress={handlePressSearch}>
           <MaterialCommunityIcons name='text-box-search-outline' style={styles.navIcon}/>
+          <Text style={{fontSize: '0.5rem', position: 'relative', color: '#6B6B6B'}}>Search</Text>
         </Pressable>
       {/* end pressable  */}
       </View>
@@ -70,8 +87,8 @@ const styles = StyleSheet.create({
   },
   // footer navbar icon
   navIcon: {
-    color: 'black',
+    color: '#6B6B6B',
     fontSize: '1.5rem',
-    marginTop: 15
+    marginTop: 8,
   }
 });

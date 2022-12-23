@@ -1,4 +1,5 @@
 import { StyleSheet, Pressable, Text, View, Image } from 'react-native';
+import React  from 'react';
 
 
 export default function Start({navigation}) {
@@ -11,14 +12,12 @@ export default function Start({navigation}) {
     <View style={styles.container}>
       {/* image welcome page */}
       <View style={styles.containerimageWelcome}>
-      <Image source={require('../assets/image/imgWelcome.jpeg')} resizeMode="cover" style={styles.imageWelcome}>
-      </Image>
-      <Text style={styles.textWelcome}>
-        Enjoy your Food
-      </Text>
-
+        <Image source={require('../assets/image/imgWelcome.jpeg')} style={styles.imageWelcome}>
+        </Image>
+        <Text style={styles.textWelcome}>
+          Enjoy your Food
+        </Text>
       </View>
-
       {/* button started */}
       <View style={styles.btn}>
         <Pressable
@@ -27,7 +26,8 @@ export default function Start({navigation}) {
           borderRadius: '50px',
           height: '100%',
           width: '100%',
-          position: 'absolute'
+          position: 'absolute',
+          shadowRadius: 10
 
          })}
         onPress={handlePress}
@@ -48,30 +48,36 @@ const styles = StyleSheet.create({
   },
 // image welcome
   containerimageWelcome: {
-    position: 'absolute',
+    position: 'relative',
     width: '80%',
     height: '50%',
-    left: '11%',
+    // left: '11%',
     top: '8%',
-    // backgroundColor: 'orange'
+    // backgroundColor: 'orange',
+    marginHorizontal: '10%'
 
   },
   imageWelcome: {
+    position: 'absolute',
     height: '100%',
     width: '100%',
     transform: 'matrix(1, -0.01, 0.01, 1, 0, 0)',
-    borderRadius: 150
+    borderRadius: '80%',
+    shadowRadius: 50,
+    aspectRatio: 1 * 1.4,
+    resizeMode: 'cover',
   },
   textWelcome: {
-    position: 'absolute',
     fontFamily: 'poppins',
     fontStyle: 'italic',
     fontWeight: 'bold',
-    fontSize: '2em',
+    fontSize: '2.5em',
     textAlign: 'center',
     color: '#FFFFFF',
-    textShadowRadius: 90,
-    top: 96
+    top: 96,
+    padding:'20px 20px 20px 40px',
+    position: 'absolute',
+
   },
 
 // button go to home page
@@ -81,15 +87,17 @@ const styles = StyleSheet.create({
     top: '70%',
     height: 50,
     width: '35%',
-    left: '30%'
+    left: '30%',
   },
   textStart: {
     fontFamily: 'poppins',
-    padding: 15,
+    padding: 7,
     fontStyle: 'italic',
     fontWeight: 'bold',
-    fontSize: '0.8em',
-    textAlign: 'center'
+    fontSize: '1em',
+    textAlign: 'center',
+    color: 'green',
+    top: 13
   }
 
 });
