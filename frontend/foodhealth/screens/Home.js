@@ -1,6 +1,7 @@
-import { StyleSheet, Text, View, Pressable, Modal } from 'react-native';
+import { StyleSheet, View, Pressable, Modal } from 'react-native';
 import { MaterialCommunityIcons, Ionicons } from '@expo/vector-icons';
 import { useLayoutEffect, useState } from 'react';
+import { Text } from 'react-native-paper';
 
 const Home = ({navigation}) =>{
 
@@ -16,9 +17,6 @@ const Home = ({navigation}) =>{
   useLayoutEffect(() =>{
     navigation.setOptions({
       headerTitle: 'Home',
-      headerLeft:() =>{
-        
-      },
       headerRight: () =>(
         <Pressable onPress={iconMenuPress}>
           <Ionicons name='ios-ellipsis-vertical' color='#212021' size='1.5rem'></Ionicons>
@@ -48,14 +46,6 @@ const Home = ({navigation}) =>{
 
   return (
     <View style={styles.container}>
-    {/* modal */}
-      <Modal
-        visible={showModal}
-        onRequestClose={() => setShowModal(false)}
-      >
-      <Text> i am the</Text>
-    </Modal>
-    {/* endmodal */}
     {/* bottom tab navbar */}
       <View style={styles.navBarBottom}>
       {/* pressable icon */}
@@ -82,6 +72,40 @@ const Home = ({navigation}) =>{
         </Pressable>
       {/* end pressable  */}
       </View>
+      {/* modal */}
+      <Modal
+          visible={showModal}
+          transparent
+          animationType='fade'
+          onRequestClose={() => setShowModal(false)}
+        >
+        {/* modal container */}
+        <View style={styles.modalContainer}>
+        {/* modal content */}
+          <View style={styles.modalContent}>
+          {/* modal header */}
+            <View style={styles.modalHeader}>
+              <Pressable 
+                style={{flexDirection: 'row'}}
+                onPress={()=> setShowModal(false)}
+              >
+                <MaterialCommunityIcons name='menu' style={styles.navIcon}></MaterialCommunityIcons>
+                <Text style={{
+                  fontSize: '1rem',
+                  fontFamily: 'poppins',
+                  marginTop: 12,
+                  color: '#6B6B6B'
+                }}>Menu</Text>
+              </Pressable>
+              {/* modal body */}
+              <View style={styles.modalBody}>
+
+              </View>
+            </View> 
+          </View>
+        </View>
+      </Modal>
+    {/* endmodal */}
 
     </View>
   );
@@ -111,6 +135,33 @@ const styles = StyleSheet.create({
     color: '#6B6B6B',
     fontSize: '1.5rem',
     marginTop: 8,
+  },
+  // modal stylisation
+  modalContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'flex-end',
+    backgroundColor: 'rgba(0,0,0,0.2)'
+
+  },
+  // modal content
+  modalContent: {
+    backgroundColor: 'white',
+    width: '60%',
+    height: '100%',
+    borderRadius: 15
+
+  },
+  // modal header
+  modalHeader: {
+    width: "100%",
+    padding: 10,
+    borderBottomWidth: 1,
+    borderBottomColor: 'lightgrey',
+  },
+  // modal body
+  modalBody: {
+
   }
 });
 export default Home;

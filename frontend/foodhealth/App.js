@@ -10,8 +10,6 @@ import Annotation from './screens/Annotation';
 import Search from './screens/Search';
 import { Easing } from 'react-native';
 
-
-
 const stack = createStackNavigator();
 
 const openConfig = {
@@ -41,14 +39,16 @@ export default function App(){
     <NavigationContainer>
       <stack.Navigator  screenOptions={{
         headerStyle: {
-          backgroundColor: '#A0BCF3'
+          backgroundColor: '#d79df2'
+        },
+        headerTitleStyle: {
+          marginLeft: 30
         },
         gestureEnable: true,
         transitionSpec: {
           open: openConfig,
           close: closeConfig
         },
-        cardStyleInterpolator: CardStyleInterpolators.forHorizontalIos
       }}>
         <stack.Screen name='Start' options={{header: () => null}} component={Start}></stack.Screen>
         <stack.Screen name='Home' component={Home}></stack.Screen>
