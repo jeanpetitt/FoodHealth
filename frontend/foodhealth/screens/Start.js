@@ -1,5 +1,5 @@
 import { StyleSheet, Pressable, Text, View, Image } from 'react-native';
-import React  from 'react';
+import React, { useLayoutEffect } from 'react';
 
 
 export default function Start({navigation}) {
@@ -7,6 +7,13 @@ export default function Start({navigation}) {
   const handlePress = () =>{
     navigation.navigate('Home')
   }
+
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      header: () => null
+    })
+  })
+
 
   return (
     <View style={styles.container}>
@@ -23,7 +30,7 @@ export default function Start({navigation}) {
         <Pressable
         style={({ pressed }) => ({ 
           backgroundColor: pressed? 'orange':'#D9D9D9',
-          borderRadius: '50px',
+          borderRadius: 50,
           height: '100%',
           width: '100%',
           position: 'absolute',
@@ -56,27 +63,24 @@ const styles = StyleSheet.create({
     // backgroundColor: 'orange',
     marginHorizontal: '10%',
     alignItems: 'center'
-
   },
   imageWelcome: {
     position: 'absolute',
     height: '100%',
     width: '100%',
-    transform: 'matrix(1, -0.01, 0.01, 1, 0, 0)',
-    borderRadius: '80%',
+    borderRadius: 250,
     shadowRadius: 50,
     aspectRatio: 1 * 1.4,
     resizeMode: 'cover',
   },
   textWelcome: {
-    fontFamily: 'poppins',
     fontStyle: 'italic',
     fontWeight: 'bold',
-    fontSize: '2.5em',
+    fontSize: 50,
     textAlign: 'center',
     color: '#FFFFFF',
     top: 96,
-    padding:'20px 20px 20px 40px',
+    // padding:'20px 20px 20px 40px',
     position: 'absolute',
 
   },
@@ -85,20 +89,20 @@ const styles = StyleSheet.create({
   btn: {
     position: 'absolute',
     top: '70%',
-    height: 50,
-    width: '35%',
+    height: 55,
+    width: '39%',
     left: '30%',
     alignItems: 'center'
   },
   textStart: {
-    fontFamily: 'poppins',
-    padding: 7,
     fontStyle: 'italic',
     fontWeight: 'bold',
-    fontSize: '1em',
+    fontSize: 20,
     textAlign: 'center',
     color: 'green',
     top: 13
-  }
+  },
+  
 
-});
+
+})
