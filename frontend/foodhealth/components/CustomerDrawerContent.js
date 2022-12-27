@@ -1,13 +1,27 @@
 import { DrawerContentScrollView, DrawerItem } from '@react-navigation/drawer';
-import React from 'react';
+import React, {useState, useLayoutEffect} from 'react';
 import { View, StyleSheet, Pressable} from 'react-native';
-import { Drawer, Text, } from 'react-native-paper';
-import { MaterialCommunityIcons, AntDesign } from '@expo/vector-icons'
+import { Drawer, Text, Switch, TouchableRipple } from 'react-native-paper';
+import { MaterialCommunityIcons, AntDesign, Ionicons } from '@expo/vector-icons'
 
 const CustomerDrawerContent = (props) => {
+    console.log(props)
+  // function to take state of the dark mode
+  const [isDark, setIsDark] = useState(false)
+  const ToggleDarkTheme = () =>{
+    if(isDark == false){
 
-    // function to
-
+        setIconTheme('moon')
+        setIsDark(!isDark)
+    }else if(isDark == true){
+        setIsDark(!isDark);
+        setIconTheme('sunny-outline')
+    }
+  }
+//   change icon theme
+    const [iconTheme, setIconTheme] = useState('sunny-outline')
+// change background color of the drawer
+  const [drawerBackground, setDrawerBackground] = useState('white')
 
   return (
     <View style={styles.container}>
@@ -31,7 +45,7 @@ const CustomerDrawerContent = (props) => {
             <DrawerItem 
                 label='Home'
                 onPress={() => props.navigation.navigate('FoodHealth')}
-                icon={(color, size) => 
+                icon={({color, size}) => 
                 <MaterialCommunityIcons 
                     color={color}
                     size={size} name="home"
@@ -40,16 +54,16 @@ const CustomerDrawerContent = (props) => {
             <DrawerItem 
                 label='Annotation'
                 onPress={() => props.navigation.navigate('Annotation')}
-                icon={(color, size) => <MaterialCommunityIcons 
+                icon={({color, size}) => <MaterialCommunityIcons 
                     name="image-edit-outline"
                     color={color} size={size}
                 />}
             />
             <DrawerItem 
                 label='Recognition'
-                icon={(color, style) => <MaterialCommunityIcons 
+                icon={({color, size}) => <MaterialCommunityIcons 
                 name="line-scan"
-                color={color} style={style}
+                color={color} size={size}
                 onPress={() => props.navigation.navigate('Recognition')}
 
                 />}
@@ -57,7 +71,7 @@ const CustomerDrawerContent = (props) => {
             <DrawerItem 
                 label='Search'
                 onPress={() => props.navigation.navigate('Search')}
-                icon={(color, size) => <MaterialCommunityIcons 
+                icon={({color, size}) => <MaterialCommunityIcons 
                     name="text-box-search-outline"
                     size={size}
                     color={color}
@@ -66,7 +80,7 @@ const CustomerDrawerContent = (props) => {
             <DrawerItem 
                 label='Nutritional Agenda'
                 onPress={() => props.navigation.navigate('Agenda')}
-                icon={(color, size) => <MaterialCommunityIcons
+                icon={({color, size}) => <MaterialCommunityIcons
                     name="calendar-month"
                     color={color}
                     size={size}
@@ -75,21 +89,49 @@ const CustomerDrawerContent = (props) => {
             <DrawerItem 
                 label='FAQ FoodHealth'
                 onPress={() => props.navigation.navigate('Search')}
-                icon={(color, size) => <AntDesign 
+                icon={({color, size}) => <AntDesign 
                     name="questioncircleo"
                     size={size}
                     color={color}
                 />}
             />
+            <TouchableRipple
+                onPress={() => ToggleDarkTheme()}
+            >
+                <View style={styles.setting}>
+                    <Ionicons name={iconTheme}
+                        style={{
+                        color: '#6B6B6B',
+                        fontWeight: 'bold',
+                        marginLeft: -20,
+                        marginTop: 15,
+                        fontSize: 24
+                        }}
+                    >
+                    </Ionicons>
+                    <Text style={{
+                            marginTop: 15,
+                            color: '#6B6B6B',
+                            marginLeft: -7,
+                            fontWeight: '200',
+                         }}>Dark Theme
+                    </Text>
+                    
+                    <View pointerEvents='none'>
+                        <Switch value={isDark}/>
+                    </View>
+                </View>
+            </TouchableRipple>
             <DrawerItem 
                 label='Exit'
                 onPress={() => props.navigation.navigate('Start')}
-                icon={(color, size) => <MaterialCommunityIcons
+                icon={({color, size}) => <MaterialCommunityIcons
                     name="logout"
                     size={size}
                     color={color}
                 />}
             />
+            
         </Drawer.Section>
       </DrawerContentScrollView>
     </View>
@@ -121,6 +163,12 @@ const styles = StyleSheet.create({
         // borderBottomWidth: 1,
         // borderBottomColor: 'lightgrey'
     },
+    // night mode
+    setting: {
+        flexDirection: 'row',
+        justifyContent: 'space-evenly'
+    }
+
     // drawer footer section
     // drawerFooterSection: {
     //     marginTop: 50

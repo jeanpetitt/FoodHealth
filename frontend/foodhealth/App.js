@@ -22,7 +22,8 @@ export default function App() {
         screenOptions={{
           headerStyle:{
             backgroundColor: "#d79df2"
-          }
+          },
+        
         }}>
         <Drawer.Screen name="Start" component={Start}></Drawer.Screen>
         <Drawer.Screen name="FoodHealth" component={Home}/>
