@@ -61,10 +61,10 @@ const CustomerDrawerContent = (props) => {
             />
             <DrawerItem 
                 label='Recognition'
+                onPress={() => props.navigation.navigate('Recognition')}
                 icon={({color, size}) => <MaterialCommunityIcons 
                 name="line-scan"
                 color={color} size={size}
-                onPress={() => props.navigation.navigate('Recognition')}
 
                 />}
             />

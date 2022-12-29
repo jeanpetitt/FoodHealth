@@ -5,7 +5,7 @@ import React, { useLayoutEffect } from 'react';
 export default function Start({navigation}) {
 
   const handlePress = () =>{
-    navigation.navigate('FoodHealth')
+    navigation.navigate('Home')
   }
 
   useLayoutEffect(() => {
