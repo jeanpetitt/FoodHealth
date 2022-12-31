@@ -37,6 +37,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
+    # more 
+    'rest_framework',
+    
+    # app project
+    'foodAgenda',
 ]
 
 MIDDLEWARE = [
@@ -75,8 +81,12 @@ WSGI_APPLICATION = 'foodhealth.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'foodhealth',
+        'USER': 'jean',
+        'PASSWORD': 'yvelos',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
