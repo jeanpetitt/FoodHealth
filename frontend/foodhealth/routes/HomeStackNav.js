@@ -18,7 +18,7 @@ const HomeStackNav = () => {
           },
         }}
     >
-        <Stack.Screen name="Agenda" component={Agenda}/>
+        <Stack.Screen name="Agendas" options={{ title: "Agenda"}} component={Agenda}/>
       </Stack.Navigator>
   );
 }

@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-0qzlcl$a!t6+3#ol8tk^k6#35&w33p0aya%@4ple9c^yj3r1&p
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -37,10 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    
-    # more 
     'rest_framework',
-    
     # app project
     'foodAgenda',
 ]
@@ -131,3 +128,7 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# REST_FRAMEWORK = {
+#     'DEFAULT_RENDERER_CLASSES': ('rest_framework.renderers.JSONRenderer',)
+# }
