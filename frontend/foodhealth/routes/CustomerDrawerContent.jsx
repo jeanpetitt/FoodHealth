@@ -5,7 +5,6 @@ import { Drawer, Text, Switch, TouchableRipple } from 'react-native-paper';
 import { MaterialCommunityIcons, AntDesign, Ionicons } from '@expo/vector-icons'
 
 const CustomerDrawerContent = (props) => {
-    console.log(props)
   // function to take state of the dark mode
   const [isDark, setIsDark] = useState(false)
   const ToggleDarkTheme = () =>{

@@ -8,6 +8,8 @@ import React from 'react';
 import BottomTabNav from "./BottomTabNav";
 import HomeStackNav from "./HomeStackNav";
 import CustomerDrawerContent from "./CustomerDrawerContent";
+import CameraView from "../screens/Camera";
+import Test from "../screens/Text";
 
 
 
@@ -23,6 +25,8 @@ const DrawerNav = () => {
         }}>
         <Drawer.Screen name="Home" component={BottomTabNav}/>
         <Drawer.Screen name="Agenda" component={HomeStackNav}/> 
+        <Drawer.Screen name="camera" component={CameraView}/>
+        <Drawer.Screen name="Test" component={Test}/>
         {/* <Drawer.Screen name="Start" component={Start}></Drawer.Screen> */}
         {/* <Drawer.Screen name="Annotation" component={Annotations}/>
         <Drawer.Screen name="Recognition" component={Recognition}/>

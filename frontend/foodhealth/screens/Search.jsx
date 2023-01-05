@@ -1,18 +1,16 @@
-import React, {useLayoutEffect} from 'react'
-import { Text, View, StyleSheet } from 'react-native'
+import React,{useLayoutEffect} from 'react';
+import { View, Text, StyleSheet } from 'react-native';
 import { MaterialCommunityIcons} from '@expo/vector-icons'
+import SearchBar from '../components/SearchBar';
 
-const Home = ({navigation}) => {
-
-
+const Search = ({navigation}) => {
 
   // customize header home screen
   useLayoutEffect(() => {
     navigation.setOptions({
-      headerTile: 'Accueil',
       headerLeft: ({color})=> (
       <MaterialCommunityIcons 
-        name='menu'
+        name='keyboard-backspace'
         color={color}
         style={styles.headerHome}
         onPress={handlePressHome}
@@ -23,23 +21,23 @@ const Home = ({navigation}) => {
   });
 
    const handlePressHome = () => {
-    navigation.openDrawer();
+    navigation.goBack();
   }
 
   return (
     <View>
-      <Text>Home Start</Text>
+      <SearchBar/>
     </View>
-  )
+  );
 }
 
-export default Home
+export default Search;
 
 const styles = StyleSheet.create({
   headerHome:{
-    fontSize: 24,
+    fontSize: 30,
     marginLeft: 20,
-    marginRight: 50
+    marginRight: 40
   },
   container: {
 
