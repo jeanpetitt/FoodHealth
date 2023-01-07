@@ -68,10 +68,7 @@ const Recognition = ({navigation}) => {
                     title='Pick from gallery' 
                     color='white'
                     subText='Detect multiple food components' 
-                    onPress={ () => navigation.dispatch(
-                        CommonActions.navigate({
-                            name: 'home',
-                        }))
+                    onPress={ () => navigation.navigate("Home")
                     }
                 />
             </View>

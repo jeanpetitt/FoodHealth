@@ -14,7 +14,7 @@ const Button = ({ title, icon, subText, onPress, color }: {title: string, icon: 
                 name={icon}
                 color={textColor}
                 backgroundColor={backgroundColor}
-                style={{ marginVertical: 5, paddingLeft: 20 }}
+                style={{ marginVertical: 1, paddingLeft: 20 }}
                 onPress={onPress}
             >
                 <View style={{ display: 'flex', flexDirection: 'column' }}>

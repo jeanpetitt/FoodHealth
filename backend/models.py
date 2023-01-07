@@ -72,4 +72,26 @@ class Food(db.Model):
             'health_problem': self.health_problem
         }
         
+class Questions(db.Model):
+    __table_name__ = 'questions'
+    id = Column(Integer, primary_key=True) 
+    question = Column(String)
+    answer = Column(String)
+    
+    def __init__(self, question, answer):
+        self.question = question
+        self.answer = answer
+        
+    def insert(self):
+        db.session.add(self)
+        db.session.commit()
+    
+    def update(self):
+        db.session.commit()
+        
+    def format(self):
+        return {
+            'id': self.id,
+            'answer': self.answer
+        }
         

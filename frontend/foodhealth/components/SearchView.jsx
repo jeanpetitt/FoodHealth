@@ -1,12 +1,12 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 
-const CreateAgenda = () => {
+const SearchView = () => {
   return (
     <View>
-      <Text></Text>
+      <Text>hdfkjjdkm</Text>
     </View>
   );
 }
 
-export default CreateAgenda;
+export default SearchView;

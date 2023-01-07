@@ -1,4 +1,4 @@
-from models import Food, setup_db
+from models import Food, setup_db, Questions
 from flask import Flask, request, jsonify, abort
 from flask_cors import CORS
 
@@ -95,8 +95,47 @@ def delete_food(food_id):
         except:
             abort(422)
 
+
+@app.route('/question/answer')
+def get_question():
+    questions = Questions.query.all()
+    list_question = [f.format() for f in questions]
     
+    return jsonify({
+        "success": True,
+        "questions":list_question
+    })
+
+# get anwser of the question
+@app.route('/question/answer', methods=['POST'])
+def get_answer_of_question():
+    body = request.get_json()
+    question = body.get("search", None)
+    
+    if question == None or question == '':
+        abort(422)
+    
+    try:
+        results = Questions.query.filter(Questions.question.like(f'%{question}%')).all()
+        
+        for res in results:
+            if res.question == question:
+                print(res.question)
+                result = res.format()
+                
+            else:
+                result = []
+        
+        return jsonify({
+                'success': True,
+                'reponses': result,
+                'total_questions': len(result),
+            })
+
+    except:
+        abort(404)
+
 
 if __name__ == '__main__':
-    app.run(host='192.168.100.47', port=3000, debug=True)
+    app.run(host='192.168.43.6', port=3000, debug=True)
    

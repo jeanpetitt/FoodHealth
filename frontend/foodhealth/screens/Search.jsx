@@ -1,7 +1,8 @@
-import React,{useLayoutEffect} from 'react';
+import React,{useLayoutEffect, useState} from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { MaterialCommunityIcons} from '@expo/vector-icons'
 import SearchBar from '../components/SearchBar';
+
 
 const Search = ({navigation}) => {
 
@@ -14,9 +15,11 @@ const Search = ({navigation}) => {
         color={color}
         style={styles.headerHome}
         onPress={handlePressHome}
-      />
-        
-      )
+      /> 
+      ),
+      headerSearchBarOption: {
+        placeholder: "search"
+      }
     })
   });
 
@@ -24,9 +27,14 @@ const Search = ({navigation}) => {
     navigation.goBack();
   }
 
+  const [data, setData] = useState('')
+
+  
   return (
     <View>
-      <SearchBar/>
+
+      <SearchBar
+      />
     </View>
   );
 }
