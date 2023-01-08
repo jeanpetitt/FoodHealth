@@ -8,7 +8,7 @@ import BboxView, { BoxType } from "./BboxView";
 
 const instance = axios.create({
   baseURL: "http://192.168.43.6:5000",
-  timeout: 10000
+  timeout: 1000000000
 })
 
 type ImageViewerPropsType = {
