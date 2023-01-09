@@ -28,7 +28,7 @@ const DrawerNav = () => {
         <Drawer.Screen name="Agenda" component={HomeStackNav}/> 
         <Drawer.Screen name="camera" component={CameraView}/>
         <Drawer.Screen name="Test" component={Test}/>
-        {/* <Drawer.Screen name="FormData" component={FormData}/> */}
+        <Drawer.Screen name="FormData" component={FormData}/>
         {/* <Drawer.Screen name="Start" component={Start}></Drawer.Screen> */}
         {/* <Drawer.Screen name="Annotation" component={Annotations}/>
         <Drawer.Screen name="Recognition" component={Recognition}/>

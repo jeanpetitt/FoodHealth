@@ -1,10 +1,11 @@
-import React, { useState, useEffect, useMemo, useCallback, useRef } from 'react'
+import React, { useState, useEffect, useMemo, useLayoutEffect, useCallback, useRef } from 'react'
 import { Text, ScrollView, View, StyleSheet, Dimensions, Button, RefreshControl, SafeAreaView } from 'react-native'
 import { DateTimePickerAndroid } from '@react-native-community/datetimepicker'
 import * as SQLite from 'expo-sqlite';
-
+import { MaterialCommunityIcons} from '@expo/vector-icons'
 import { convertToDate } from '../components/foodAgenda/Functions'
 import FormData from './FormData'
+import { useNavigation } from '@react-navigation/native';
 
 
 var db = SQLite.openDatabase("FoodCalendar.db");
@@ -14,7 +15,28 @@ const wait = (timeout: any) => {
     return new Promise(resolve => setTimeout(resolve, timeout));
 }
 
-export default function DailyInformations() {
+export default function Agenda() {
+
+    const navigation = useNavigation()
+
+      // customize header home screen
+    useLayoutEffect(() => {
+        navigation.setOptions({
+        headerLeft: ({color}:{color: string})=> (
+        <MaterialCommunityIcons 
+            name='keyboard-backspace'
+            color={color}
+            style={styles.headerHome}
+            onPress={handlePressHome}
+        />
+            
+        )
+        })
+    });
+
+   const handlePressHome = () => {
+    navigation.goBack();
+  }
 
     const [date, setDate] = useState(new Date())
     const [foodList, setFoodList] = useState<any>([])  
@@ -100,7 +122,7 @@ export default function DailyInformations() {
 
     return (
         <SafeAreaView style={styles.container}>
-            <Button onPress={showDatepicker} color='lightpurple' title="Select a date here" />
+            <Button onPress={showDatepicker} color='#d79df2' title="t=Touch to Select a date here" />
             <ScrollView
                 key={key}
                 refreshControl={
@@ -128,6 +150,11 @@ export default function DailyInformations() {
 }
 
 const styles = StyleSheet.create({
+    headerHome:{
+        fontSize: 30,
+        marginLeft: 20,
+        marginRight: 40
+    },
     container: {
         flex:1,
         display: 'flex',
@@ -137,7 +164,6 @@ const styles = StyleSheet.create({
         height: Dimensions.get('window').height,
     },
     topBoxe: {
-        backgroundColor: 'blue',
         padding: 20,
     },
     date: {

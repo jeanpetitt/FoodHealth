@@ -2,7 +2,7 @@ import React, { useState, useEffect, useMemo } from 'react'
 import { Text, View, StyleSheet, Switch, TouchableOpacity, Alert } from 'react-native'
 import * as SQLite from 'expo-sqlite';
 import { MaterialCommunityIcons } from '@expo/vector-icons'
-
+import InputText from '../components/foodAgenda/InputText';
 
 var db = SQLite.openDatabase("FoodCalendar.db");
 
@@ -88,6 +88,8 @@ const FormData = ({date, selectedFood}: {date: any, selectedFood?: any}) => {
         })
     }    
 
+    // navigate to the folder name after submiting data
+    
 
     // Form content
     const renderContent = () => {

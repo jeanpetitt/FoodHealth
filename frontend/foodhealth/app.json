@@ -25,10 +25,16 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/logo.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.jeanpetit.foodhealth"
     },
     "web": {
       "favicon": "./assets/favicon.jpg"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "7fbe7632-eb44-4ea8-8747-249ed124e4c3"
+      }
     }
   }
 }

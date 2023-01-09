@@ -1,0 +1,54 @@
+diff --git a/node_modules/react-native/Libraries/Core/.ExceptionsManager.js.swp b/node_modules/react-native/Libraries/Core/.ExceptionsManager.js.swp
+new file mode 100644
+index 0000000..5662ff3
+Binary files /dev/null and b/node_modules/react-native/Libraries/Core/.ExceptionsManager.js.swp differ
+diff --git a/node_modules/react-native/Libraries/ReactNative/.AppRegistry.js.swp b/node_modules/react-native/Libraries/ReactNative/.AppRegistry.js.swp
+new file mode 100644
+index 0000000..35c269a
+Binary files /dev/null and b/node_modules/react-native/Libraries/ReactNative/.AppRegistry.js.swp differ
+diff --git a/node_modules/react-native/index.js b/node_modules/react-native/index.js
+index d59ba34..e7f2166 100644
+--- a/node_modules/react-native/index.js
++++ b/node_modules/react-native/index.js
+@@ -433,36 +433,19 @@ module.exports = {
+         'LogBox is enabled by default so there is no need to call unstable_enableLogBox() anymore. This is a no op and will be removed in the next version.',
+       );
+   },
+-  // Deprecated Prop Types
++ // Deprecated Prop Types
+   get ColorPropType(): $FlowFixMe {
+-    invariant(
+-      false,
+-      'ColorPropType has been removed from React Native. Migrate to ' +
+-        "ColorPropType exported from 'deprecated-react-native-prop-types'.",
+-    );
++    return require("deprecated-react-native-prop-types").ColorPropType
+   },
+   get EdgeInsetsPropType(): $FlowFixMe {
+-    invariant(
+-      false,
+-      'EdgeInsetsPropType has been removed from React Native. Migrate to ' +
+-        "EdgeInsetsPropType exported from 'deprecated-react-native-prop-types'.",
+-    );
++    return require("deprecated-react-native-prop-types").EdgeInsetsPropType
+   },
+   get PointPropType(): $FlowFixMe {
+-    invariant(
+-      false,
+-      'PointPropType has been removed from React Native. Migrate to ' +
+-        "PointPropType exported from 'deprecated-react-native-prop-types'.",
+-    );
++    return require("deprecated-react-native-prop-types").PointPropType
+   },
+   get ViewPropTypes(): $FlowFixMe {
+-    invariant(
+-      false,
+-      'ViewPropTypes has been removed from React Native. Migrate to ' +
+-        "ViewPropTypes exported from 'deprecated-react-native-prop-types'.",
+-    );
++    return require("deprecated-react-native-prop-types").ViewPropTypes
+   },
+-};
+ 
+ if (__DEV__) {
+   /* $FlowFixMe[prop-missing] This is intentional: Flow will error when

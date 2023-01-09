@@ -29,7 +29,7 @@ const SearchBar = () => {
         setAnswer("biryani is mots energetique ")
         setQuestion('')
         break;
-      case " whats it is the most energetique food at kenyan?":
+      case "whats it is the most energetique food at kenyan?":
         setAnswer("ugali is the food tha content most energy than others food.");
         setQuestion('')
         break;

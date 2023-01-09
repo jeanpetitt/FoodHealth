@@ -1,32 +1,35 @@
-## Algorithme du sac a dos
-If we consider that our body is a bag that should be filled with food1 (x1 quantity), food2 (x2 quantity), food3
-(x3 quantity), water (y quantity). Xi is the maximum quantity of foodi that the body should contain.
+# FoodHealth
+welcome to the foodhealth mobile app. this application contain more functionnality as foodagenda, foodRecognition an search engines for the relatives question of the food
 
-## Solution
-To build a solution of that problem we will use dynamic programmation
+## Dependancies 
+for using this app in the local make sure your have nodejs, expo-cli intalled in your device.
 
-### Let go
+## stack
+this applicaton is building in react native an expo
 
-    alogrihtm body_bag
-    var i, j:integer,
-    T[1...Q_body, 1..n]:integer
-    begin
-        // initialisation of the quantity of the food
-        for j = 0 to Q_body:
-            T[0, j] = 0
-        endfor
-        for i=1 to n:
-            for j=0 to Q_body:
-                if j >= q_food[i]:
-                T[i,j] = max(T[i-1,j], T[i-1, j-q_food[i]]+ v[i])
-                else:
-                    T[i, j] = T[i-1, j]
-                endif
-            endfor
-        endfor
-        return T
-    end
+if you want to run application make your in frontend/foodhealth and try this command
 
+```
+npm install
+```
+after do try again:
+```
+npm start
+```
+## Functionalities
+this app have three main functionnatities
 
+ - <strong>FoodRecognition:</strong> you can press button in bottom tabs or open drawer nav bar and navigate in <b>Recognition</b> page.
+ - <strong>FoodAgenda:</strong> for save dayly habit open the drawer nav bar and navigate in Agenda page
+ - <strong>search engine</strong> 
+ we  can test for differents questions as
 
+ 1. ugali is the food of which country?
+ 2. is sukuma wiki recommended for old people?
+ 3. Does sukuma wiki contain too much pepper?
+ 4. which meal takes a lot of water for preparation?
+ 5. Which Algerian meal takes the least water?
+ 6. whats it is the most energetique food at kenyan?
+
+ ### AUthors
 

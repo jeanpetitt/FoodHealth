@@ -3,11 +3,6 @@ import { View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native';
 import { MaterialCommunityIcons} from '@expo/vector-icons'
 import * as ImagePicker from 'expo-image-picker';
 import Button from '../components/Button';
-import DisplayImages from '../components/AnnotationView'
-import { Col, Row, Grid } from 'react-native-easy-grid';
-import { PanGestureHandler } from "react-native-gesture-handler";
-import Animated from "react-native-reanimated";
-import FastImage from 'react-native-fast-image';
 
 
 const Annotations = ({navigation,pics, deleteImage}) => {
