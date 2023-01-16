@@ -53,6 +53,14 @@ const SearchBar = () => {
         setAnswer("Ugalis is the food of Kenyan country")
         setQuestion('')
         break;
+      case "":
+        setAnswer("")
+        setQuestion('')
+        break;
+      case "hello":
+        setAnswer("Hello it is word that mean salutation")
+        setQuestion('')
+        break;
       default:
         setAnswer('this question have not yet the anwer')
         setQuestion('')
